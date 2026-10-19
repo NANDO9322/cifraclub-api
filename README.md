@@ -1,11 +1,23 @@
 # Cifra Club API
 
+> Fork atualizado para servir o Entoa. Compatível com a página atual do Cifra
+> Club e preparado para execução com Gunicorn e Selenium remoto.
+
 Esse projeto cria uma API Rest para obter a cifra
 de uma música do [Cifra Club](https://www.cifraclub.com.br).
 
 A ideia é disponibilizar as cifras em formato JSON através de uma
 interface de API Rest, para facilitar a interação com outros sistemas
 ou criar automações.
+
+## Configuração do serviço
+
+- `PORT`: porta HTTP da API (padrão `3000`).
+- `SELENIUM_URL`: endereço do Selenium remoto (padrão
+  `http://selenium:4444/wd/hub`).
+
+O endpoint `GET /artists/:artist/songs/:song` devolve título, artista, tom e a
+cifra completa. O navegador é encerrado ao fim de cada consulta.
 
 O endpoint de API `/artists/:artist/songs/:song` executa um WebDriver do Selenium
 para ler a página web e extrair a cifra e meta dados da música, no formato de JSON.
